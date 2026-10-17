@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Metehan Ay — IT / Sistem Uzmanı</title>
+<meta name="description" content="Metehan Ay — Deneyimli iOS Teknisyeni ve Yazılım Geliştirici. React, Node.js, MongoDB ve yapay zeka entegrasyonları. İzmir." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Metehan Ay — IT / Sistem Uzmanı" />
+<meta property="og:description" content="Deneyimli iOS Teknisyeni ve Yazılım Geliştirici. React · Node.js · MongoDB · Yapay Zeka." />
+<meta name="theme-color" content="#06060d" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236c5ce7'/%3E%3Cstop offset='1' stop-color='%2300d2ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='38' font-weight='700' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#06060d; --ink:#f4f4f8; --muted:#9a9aae;
+  --accent:#6c5ce7; --accent2:#00d2ff; --accent3:#ff5ea0;
+  --line:rgba(255,255,255,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden}
+a{color:inherit;text-decoration:none}
+
+/* ===== Hareketli arka plan ===== */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.orbs{position:absolute;inset:0;animation:hue 18s linear infinite}
+@keyframes hue{to{filter:hue-rotate(360deg)}}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;mix-blend-mode:screen;will-change:transform}
+.orb.a{width:46vw;height:46vw;background:radial-gradient(circle,var(--accent),transparent 65%);top:-10vw;left:-6vw;animation:d1 24s ease-in-out infinite}
+.orb.b{width:38vw;height:38vw;background:radial-gradient(circle,var(--accent2),transparent 65%);bottom:-12vw;left:38vw;animation:d2 28s ease-in-out infinite}
+.orb.c{width:42vw;height:42vw;background:radial-gradient(circle,var(--accent3),transparent 65%);top:6vw;left:78vw;animation:d3 32s ease-in-out infinite}
+.orb.d{width:34vw;height:34vw;background:radial-gradient(circle,#34e7b4,transparent 65%);bottom:-8vw;left:8vw;animation:d2 26s ease-in-out infinite reverse}
+@keyframes d1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(7vw,4vh) scale(1.15)}}
+@keyframes d2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-5vw,-6vh) scale(1.1)}}
+@keyframes d3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-8vw,5vh) scale(1.2)}}
+
+/* süzülen renkli figürler */
+.figs{position:absolute;inset:0}
+.fig{position:absolute;will-change:transform;opacity:.55}
+.fig.ring{border:2px solid var(--accent2);border-radius:50%}
+.fig.ring2{border:2px dashed var(--accent3);border-radius:50%}
+.fig.dot{border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 18px rgba(108,92,231,.7)}
+.fig.star{color:var(--accent2);font-size:26px;text-shadow:0 0 14px currentColor}
+.f1{width:120px;height:120px;top:16%;left:12%;animation:floaty 11s ease-in-out infinite}
+.f2{width:80px;height:80px;top:62%;left:26%;animation:floaty 9s ease-in-out infinite reverse}
+.f3{width:14px;height:14px;top:30%;left:46%;animation:floaty 7s ease-in-out infinite}
+.f4{top:22%;left:64%;color:var(--accent3);animation:twinkle 4s ease-in-out infinite}
+.f5{width:64px;height:64px;top:70%;left:74%;border-color:#34e7b4;animation:floaty 13s ease-in-out infinite}
+.f6{top:58%;left:90%;color:#34e7b4;animation:twinkle 5s ease-in-out infinite .6s}
+.f7{width:10px;height:10px;top:78%;left:54%;animation:floaty 8s ease-in-out infinite}
+.f8{top:14%;left:84%;color:var(--accent);animation:twinkle 3.6s ease-in-out infinite .3s}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-26px) rotate(16deg)}}
+@keyframes twinkle{0%,100%{opacity:.25;transform:scale(.85)}50%{opacity:.9;transform:scale(1.15)}}
+.grid-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(circle at 50% 50%,#000,transparent 78%);opacity:.45}
+.vignette{position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 50%,transparent 55%,rgba(0,0,0,.55) 100%)}
+
+/* ince film grain dokusu */
+.grain{position:fixed;inset:-50%;z-index:40;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grainMove 8s steps(6) infinite}
+@keyframes grainMove{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-4%)}60%{transform:translate(-3%,-3%)}80%{transform:translate(4%,2%)}100%{transform:translate(0,0)}}
+
+/* ===== Açılış animasyonu ===== */
+.intro{position:fixed;inset:0;z-index:100;background:#06060d;display:flex;align-items:center;justify-content:center;transition:transform 1s cubic-bezier(.76,0,.24,1)}
+.intro.done{transform:translateX(-100%)}
+.intro-inner{display:flex;flex-direction:column;align-items:center;gap:1rem}
+.intro-name{font-family:'Space Grotesk';font-weight:700;font-size:clamp(2.4rem,7vw,5rem);letter-spacing:.02em;background:linear-gradient(100deg,#fff,#b6a8ff,#7fe9ff,#fff);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;transform:translateY(20px);animation:introUp .9s .2s forwards,sheen 6s 1s ease-in-out infinite}
+.intro-line{width:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));animation:introLine .8s .8s forwards}
+.intro-role{color:var(--muted);font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;opacity:0;animation:introUp .8s .9s forwards}
+@keyframes introUp{to{opacity:1;transform:none}}
+@keyframes introLine{to{width:220px}}
+
+/* ===== İmleç ışığı ===== */
+.cursor-glow{position:fixed;top:0;left:0;width:460px;height:460px;border-radius:50%;pointer-events:none;z-index:38;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(108,92,231,.18),transparent 60%);opacity:0;transition:opacity .4s;will-change:left,top}
+@media (hover:none){.cursor-glow{display:none}}
+
+/* ===== Yatay ray ===== */
+.track{position:relative;z-index:2;display:flex;height:100vh;width:100vw;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.panel{flex:0 0 100vw;width:100vw;height:100vh;scroll-snap-align:center;position:relative;display:flex;align-items:center;padding:5vh 9vw;overflow:hidden}
+.stage{position:relative;z-index:3;width:100%;max-width:1100px;max-height:92vh;will-change:transform,opacity}
+.scrollable{overflow-y:auto;scrollbar-width:none}
+.scrollable::-webkit-scrollbar{display:none}
+
+/* dev kontur rakam kaldırıldı */
+.ghost-num{display:none}
+
+/* ===== Tipografi ===== */
+.eyebrow{color:var(--accent2);letter-spacing:.35em;text-transform:uppercase;font-size:.8rem;margin-bottom:1.1rem;font-weight:600}
+.section-index{display:block;font-family:'Space Grotesk';color:var(--accent);font-size:1rem;letter-spacing:.3em;margin-bottom:.6rem;opacity:.85}
+.section-title{font-family:'Space Grotesk';font-size:clamp(1.7rem,4vw,3rem);font-weight:600;line-height:1.05;margin-bottom:1.5rem;letter-spacing:-.02em;background:linear-gradient(100deg,#fff,#c8bdff 55%,#8fefff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.section-title.sub{font-size:clamp(1.3rem,2.6vw,1.9rem);margin-bottom:1.1rem}
+.section-title.big{font-size:clamp(2.2rem,6vw,4.6rem);line-height:1}
+.about-text{color:var(--muted);font-size:clamp(.92rem,1.1vw,1.02rem);font-weight:300;line-height:1.7;max-width:560px;margin-bottom:1.6rem}
+
+/* HERO + iPhone */
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center}
+.hero-content{max-width:680px}
+.hero-title{font-family:'Space Grotesk';font-weight:600;font-size:clamp(2.4rem,6.5vw,5.2rem);line-height:.92;letter-spacing:-.03em;margin:.3rem 0 1.1rem}
+.hero-title .line{display:block}
+.hero-title .line:not(.outline){background:linear-gradient(100deg,#fff 0%,#b6a8ff 30%,#7fe9ff 50%,#fff 70%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 6s ease-in-out infinite}
+@keyframes sheen{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
+.hero-title .outline{-webkit-text-stroke:1.5px var(--ink);color:transparent}
+.hero-role{font-size:clamp(.95rem,1.7vw,1.25rem);font-weight:500;margin-bottom:.9rem;background:linear-gradient(90deg,var(--accent2),var(--accent3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{color:var(--muted);font-size:.96rem;font-weight:300;line-height:1.6;max-width:480px;margin-bottom:1.8rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;padding:.7rem 1.35rem;border-radius:50px;font-weight:500;font-size:.88rem;transition:transform .25s,box-shadow .25s;cursor:pointer}
+.btn::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-18deg);transition:left .6s ease}
+.btn:hover::after{left:140%}
+.btn--primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 8px 30px rgba(108,92,231,.4)}
+.btn--primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(108,92,231,.6)}
+.btn--ghost{border:1px solid var(--line);color:var(--ink)}
+.btn--ghost:hover{background:rgba(255,255,255,.06);transform:translateY(-3px)}
+
+/* 3D tilt */
+.tilt{transform-style:preserve-3d;transition:transform .25s ease}
+.phone-tilt{transition:transform .25s ease;transform-style:preserve-3d}
+.info{transform-style:preserve-3d}
+
+/* iPhone mockup */
+.hero{perspective:1200px}
+.info-grid{perspective:900px}
+.phone-wrap{display:flex;justify-content:center;will-change:transform;perspective:1000px}
+.phone{position:relative;width:230px;height:470px;border-radius:44px;background:linear-gradient(160deg,#1c1c28,#0d0d16);border:2px solid rgba(255,255,255,.12);box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 0 0 6px #000;padding:10px;animation:phoneFloat 6s ease-in-out infinite}
+@keyframes phoneFloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-18px) rotate(-1deg)}}
+.phone-screen{position:relative;width:100%;height:100%;border-radius:34px;overflow:hidden;background:radial-gradient(120% 90% at 30% 0%,#2a2150,#0b0b16 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem}
+.phone-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:90px;height:22px;border-radius:14px;background:#000;z-index:4}
+.phone-time{position:absolute;top:34px;left:0;right:0;text-align:center;font-family:'Space Grotesk';font-weight:600;font-size:2.4rem;opacity:.95}
+.phone-app{width:62px;height:62px;border-radius:18px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-family:'Space Grotesk';font-weight:700;font-size:1.6rem;color:#fff;box-shadow:0 10px 30px rgba(108,92,231,.5);animation:appPulse 3s ease-in-out infinite}
+@keyframes appPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.phone-hi{font-family:'Space Grotesk';font-size:1.2rem;font-weight:600;margin-top:.6rem}
+.phone-tag{color:var(--accent2);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+.phone-glow{position:absolute;inset:-40px;background:radial-gradient(circle,rgba(108,92,231,.5),transparent 60%);filter:blur(30px);z-index:-1}
+
+/* PROFİL */
+.info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem;max-width:660px}
+.info{border:1px solid var(--line);background:rgba(255,255,255,.04);backdrop-filter:blur(6px);border-radius:14px;padding:1rem 1.2rem}
+.info span{display:block;color:var(--accent2);font-size:.74rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.35rem}
+.info strong{font-family:'Space Grotesk';font-weight:500;font-size:1rem}
+
+/* DENEYİM */
+.timeline{position:relative;display:flex;flex-direction:column;gap:1.4rem;max-width:560px}
+.tl-line{position:absolute;left:0;top:0;width:2px;height:100%;transform:scaleY(0);transform-origin:top;background:linear-gradient(180deg,var(--accent),var(--accent2),var(--accent3));transition:transform 1.1s cubic-bezier(.22,1,.36,1) .2s}
+.panel.active .tl-line{transform:scaleY(1)}
+.job{display:flex;gap:1.5rem;border-left:2px solid var(--line);padding:.2rem 0 .2rem 1.5rem;position:relative}
+.job::before{content:"";position:absolute;left:-7px;top:.4rem;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(108,92,231,.2)}
+.job-date{color:var(--accent2);font-size:.85rem;font-weight:600;min-width:150px;padding-top:.15rem}
+.job-body h3{font-family:'Space Grotesk';font-size:1.18rem;margin-bottom:.5rem}
+.job-roles{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:.7rem}
+.job-roles span{font-size:.77rem;color:var(--ink);border:1px solid var(--line);background:rgba(108,92,231,.14);padding:.3rem .75rem;border-radius:50px}
+.job-body p{color:var(--muted);font-size:.93rem;line-height:1.55}
+
+/* EĞİTİM */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.edu-item{margin-bottom:1.5rem}
+.edu-item h3{font-family:'Space Grotesk';font-size:1.18rem;margin-bottom:.3rem}
+.edu-item p{color:var(--muted);font-size:.93rem;margin-bottom:.3rem}
+.edu-item .year{color:var(--accent2);font-size:.82rem;font-weight:600}
+.cert-list{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.cert-list li{position:relative;padding-left:1.4rem;color:var(--ink);font-size:.96rem}
+.cert-list li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+
+/* YETENEKLER */
+.skills{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2.4rem;max-width:560px}
+.chip{border:1px solid var(--line);background:rgba(255,255,255,.04);backdrop-filter:blur(6px);padding:.55rem 1.05rem;border-radius:50px;font-size:.9rem;color:var(--ink);
+  opacity:0;transform:translateY(14px) scale(.96);
+  transition:opacity .5s ease,transform .5s cubic-bezier(.22,1,.36,1),border-color .25s,background .25s}
+.panel.active .chip{opacity:1;transform:none}
+.chip:hover{transform:translateY(-3px);background:rgba(255,255,255,.08)}
+.skills .chip:nth-child(4n+1){border-color:rgba(108,92,231,.45);color:#cbc0ff}
+.skills .chip:nth-child(4n+2){border-color:rgba(0,210,255,.45);color:#a7ecff}
+.skills .chip:nth-child(4n+3){border-color:rgba(255,94,160,.45);color:#ffb9d4}
+.skills .chip:nth-child(4n+4){border-color:rgba(52,231,180,.45);color:#a8f3dc}
+.skills .chip:nth-child(1){transition-delay:.05s}.skills .chip:nth-child(2){transition-delay:.09s}
+.skills .chip:nth-child(3){transition-delay:.13s}.skills .chip:nth-child(4){transition-delay:.17s}
+.skills .chip:nth-child(5){transition-delay:.21s}.skills .chip:nth-child(6){transition-delay:.25s}
+.skills .chip:nth-child(7){transition-delay:.29s}.skills .chip:nth-child(8){transition-delay:.33s}
+.skills .chip:nth-child(9){transition-delay:.37s}.skills .chip:nth-child(10){transition-delay:.41s}
+.skills .chip:nth-child(11){transition-delay:.45s}.skills .chip:nth-child(12){transition-delay:.49s}
+.skills .chip:nth-child(13){transition-delay:.53s}.skills .chip:nth-child(14){transition-delay:.57s}
+.skills .chip:nth-child(15){transition-delay:.61s}
+.stats{display:flex;gap:3rem;flex-wrap:wrap}
+.stat strong{display:block;font-family:'Space Grotesk';font-size:clamp(2rem,4vw,3rem);background:linear-gradient(90deg,var(--accent2),var(--accent3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{color:var(--muted);font-size:.9rem}
+
+/* İLETİŞİM */
+.contact-links{display:flex;flex-wrap:wrap;gap:1.1rem 2.5rem;margin:1rem 0 2.4rem}
+.contact-links a{font-family:'Space Grotesk';font-size:1.15rem;position:relative;padding-bottom:4px}
+.contact-links a::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;background:linear-gradient(90deg,var(--accent2),var(--accent3));transition:width .3s}
+.contact-links a:hover::after{width:100%}
+.footer-note{color:var(--muted);font-size:.85rem}
+
+/* UI */
+/* ===== Bölüm figürleri (art) ===== */
+.art{position:absolute;right:6vw;top:50%;transform:translateY(-50%);width:38vw;max-width:460px;height:66vh;z-index:2;pointer-events:none;display:grid;place-items:center}
+@media(max-width:980px){.art{display:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* cam kart */
+.gcard{position:absolute;display:flex;align-items:center;gap:.7rem;padding:.85rem 1.05rem;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.05);backdrop-filter:blur(10px);box-shadow:0 20px 50px rgba(0,0,0,.35);font-family:'Space Grotesk';font-weight:500}
+.gcard .ic{font-size:1.5rem;line-height:1}
+.gcard b{font-size:.92rem;font-weight:600}
+.gcard small{display:block;color:var(--muted);font-weight:400;font-size:.76rem;margin-top:2px}
+
+/* Profil — yörünge */
+.orbit-core{position:absolute;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;font-family:'Space Grotesk';font-weight:700;font-size:2.3rem;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 60px rgba(108,92,231,.6);animation:floaty 6s ease-in-out infinite}
+.orbit-ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.12)}
+.orbit-ring.r1{width:200px;height:200px;animation:spin 16s linear infinite}
+.orbit-ring.r2{width:300px;height:300px;animation:spin 24s linear infinite reverse}
+.orbit-ring.r3{width:400px;height:400px;animation:spin 34s linear infinite}
+.orbit-ring .ob{position:absolute;top:-7px;left:50%;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 18px var(--accent2)}
+.orbit-ring.r2 .ob{background:var(--accent3);box-shadow:0 0 18px var(--accent3)}
+.orbit-ring.r3 .ob{background:#34e7b4;box-shadow:0 0 18px #34e7b4}
+
+/* Deneyim — yüzen kartlar */
+.art-stack .c1{top:6%;left:8%;animation:floaty 7s ease-in-out infinite}
+.art-stack .c2{top:42%;left:30%;animation:floaty 9s ease-in-out infinite reverse}
+.art-stack .c3{top:74%;left:6%;animation:floaty 8s ease-in-out infinite}
+
+/* Eğitim — halka + cam kartlar */
+.edu-ring{position:absolute;width:310px;height:310px;border-radius:50%;border:2px dashed rgba(0,210,255,.35);animation:spin 28s linear infinite}
+.edu-ring.inner{width:200px;height:200px;border-style:solid;border-color:rgba(108,92,231,.3);animation:spin 20s linear infinite reverse}
+.edu-cap{position:absolute;font-size:3.6rem;filter:drop-shadow(0 0 22px rgba(108,92,231,.6));animation:floaty 6s ease-in-out infinite}
+.art-edu .e1{top:10%;right:2%;animation:floaty 8s ease-in-out infinite}
+.art-edu .e2{bottom:10%;left:0;animation:floaty 7s ease-in-out infinite reverse}
+
+/* Yetenekler — takımyıldızı */
+.sk-core{position:absolute;width:92px;height:92px;border-radius:50%;display:grid;place-items:center;font-size:2rem;color:#fff;background:linear-gradient(135deg,var(--accent2),var(--accent));box-shadow:0 0 55px rgba(0,210,255,.55);animation:floaty 6s ease-in-out infinite}
+.sk-orbit{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.08)}
+.sk-orbit.so1{width:230px;height:230px;animation:spin 20s linear infinite}
+.sk-orbit.so2{width:360px;height:360px;animation:spin 30s linear infinite reverse}
+.bub{position:absolute;top:50%;left:50%;padding:.34rem .7rem;border-radius:50px;font-family:'Space Grotesk';font-size:.74rem;font-weight:500;white-space:nowrap;background:rgba(255,255,255,.06);border:1px solid var(--line);backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.so1 .bub{transform:translate(-50%,-50%) rotate(var(--a)) translateY(-115px) rotate(calc(-1*var(--a)))}
+.so2 .bub{transform:translate(-50%,-50%) rotate(var(--a)) translateY(-180px) rotate(calc(-1*var(--a)))}
+.so1 .bub>span{display:inline-block;animation:spin 20s linear infinite reverse}
+.so2 .bub>span{display:inline-block;animation:spin 30s linear infinite}
+
+/* İletişim — cam kart */
+.ccard{position:relative;width:280px;padding:1.5rem;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.06);backdrop-filter:blur(12px);box-shadow:0 30px 70px rgba(0,0,0,.45);animation:floaty 7s ease-in-out infinite}
+.ccard .ccglow{position:absolute;inset:-30px;background:radial-gradient(circle,rgba(0,210,255,.3),transparent 60%);filter:blur(22px);z-index:-1}
+.cc-ava{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-family:'Space Grotesk';font-weight:700;font-size:1.35rem;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));margin-bottom:1rem}
+.cc-l{height:9px;border-radius:6px;background:rgba(255,255,255,.13);margin-bottom:.55rem}
+.cc-l.s{width:65%}
+.cc-btn{margin-top:1.1rem;padding:.6rem 1rem;border-radius:50px;text-align:center;font-family:'Space Grotesk';font-size:.84rem;font-weight:600;color:#fff;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 12px 30px rgba(108,92,231,.4)}
+
+.progress-track{position:fixed;top:0;left:0;width:100%;height:3px;background:rgba(255,255,255,.06);z-index:50}
+.progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3))}
+.dots{position:fixed;right:2.2rem;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:.9rem}
+.dots button{width:10px;height:10px;border-radius:50%;border:1px solid var(--muted);background:transparent;cursor:pointer;padding:0;transition:all .3s}
+.dots button.active{background:var(--accent2);border-color:var(--accent2);box-shadow:0 0 12px var(--accent2);transform:scale(1.3)}
+/* zarif bölüm göstergesi (sol alt) */
+.nav-indicator{position:fixed;bottom:2rem;left:9vw;z-index:50;display:flex;align-items:center;gap:.75rem;font-family:'Space Grotesk'}
+.ni-num{font-weight:600;font-size:.9rem;color:var(--accent2);letter-spacing:.1em}
+.ni-bar{width:38px;height:1px;background:linear-gradient(90deg,var(--accent2),transparent)}
+.ni-label{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);transition:opacity .3s}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:2rem}
+  .phone-wrap{display:none}
+}
+@media (max-width:760px){
+  .panel{padding:7vh 8vw}
+  .two-col{grid-template-columns:1fr;gap:1.6rem}
+  .info-grid{grid-template-columns:1fr}
+  .stats{gap:1.8rem}
+  .job{flex-direction:column;gap:.4rem}
+  .job-date{min-width:auto}
+  .dots{right:1rem;gap:.7rem}
+  .brand{left:8vw;top:1.2rem}
+  .scroll-hint{left:8vw;bottom:1.2rem}
+  .ghost-num{font-size:30vh}
+}
+@media (prefers-reduced-motion:reduce){.orb,.phone{animation:none}}
+</style>
+</head>
+<body>
+
+  <!-- Açılış animasyonu -->
+  <div class="intro" id="intro">
+    <div class="intro-inner">
+      <span class="intro-name">Metehan Ay</span>
+      <span class="intro-line"></span>
+      <span class="intro-role">IT / Sistem Uzmanı</span>
+    </div>
+  </div>
+
+  <!-- İmleç ışığı -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <div class="bg">
+    <div class="grid-dots"></div>
+    <div class="orbs">
+      <div class="orb a"></div><div class="orb b"></div><div class="orb c"></div><div class="orb d"></div>
+    </div>
+    <!-- süzülen renkli figürler -->
+    <div class="figs">
+      <span class="fig ring f1"></span>
+      <span class="fig ring2 f2"></span>
+      <span class="fig dot f3"></span>
+      <span class="fig star f4">✦</span>
+      <span class="fig ring f5"></span>
+      <span class="fig star f6">✶</span>
+      <span class="fig dot f7"></span>
+      <span class="fig star f8">✧</span>
+    </div>
+    <div class="vignette"></div>
+  </div>
+  <div class="grain"></div>
+
+  <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+  <nav class="dots" id="dots"></nav>
+  <div class="nav-indicator" id="navIndicator">
+    <span class="ni-num">01</span><span class="ni-bar"></span><span class="ni-label">Giriş</span>
+  </div>
+
+  <main class="track" id="track">
+
+    <!-- 1 GİRİŞ -->
+    <section class="panel" data-label="Giriş">
+      <div class="stage">
+        <div class="hero">
+          <div class="hero-content">
+            <p class="eyebrow" data-depth="60">Merhaba, ben</p>
+            <h1 class="hero-title"><span class="line">Metehan</span><span class="line outline">Ay</span></h1>
+            <p class="hero-role">IT &nbsp;/&nbsp; Sistem Uzmanı </p>
+            <p class="hero-sub">Teknik destek, IT operasyonları ve sistem yönetimi alanlarında deneyim sahibi bir IT uzmanıyım. Donanım ve yazılım sorunlarının çözümünde deneyimimi, yazılım geliştirme becerilerimle birleştirerek kendimi sürekli geliştiriyorum. Amacım, teknik uzmanlığımı ve yazılım yetkinliklerimi ileriye taşıyarak teknoloji alanında değer üretmek.</p>
+            <div class="hero-actions">
+              <a class="btn btn--primary" href="#" data-go="5">İletişime Geç</a>
+              <a class="btn btn--ghost" href="Metehan_Ay_CV.pdf" download>CV indir (PDF)</a>
+            </div>
+          </div>
+          <div class="phone-wrap" data-depth="-120">
+            <div class="phone-tilt tilt">
+              <div class="phone">
+                <div class="phone-glow"></div>
+                <div class="phone-screen">
+                  <div class="phone-notch"></div>
+                  <div class="phone-time">9:41</div>
+                  <div class="phone-app">M</div>
+                  <div class="phone-hi">Merhaba 👋</div>
+                  <div class="phone-tag">iOS Developer</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 PROFİL -->
+    <section class="panel" data-label="Profil">
+      <div class="art art-orbit" aria-hidden="true">
+        <div class="orbit-core">MA</div>
+        <div class="orbit-ring r1"><span class="ob"></span></div>
+        <div class="orbit-ring r2"><span class="ob"></span></div>
+        <div class="orbit-ring r3"><span class="ob"></span></div>
+      </div>
+      <div class="stage scrollable">
+        <span class="section-index" data-depth="50">01</span>
+        <h2 class="section-title">Profil</h2>
+        <p class="about-text">Yönetim Bilişim Sistemleri mezunu, Apple yetkili servisinde teknik servis yöneticiliği deneyimine sahip IT uzmanı. Sistem
+yönetimi, teknik destek, sorun giderme, teknik servis operasyonları ve müşteri destek süreçlerindeki saha tecrübemi; Active
+Directory, Windows güvenliği ve ağ altyapısı bilgimle birleştiriyorum. Ayrıca React, Node.js, MongoDB ile geliştirdiğim web
+uygulamaları ve Büyük Dil Modeli (LLM) projeleriyle IT süreçlerine otomasyon ve yazılım desteği sağlıyorum.</p>
+        <div class="info-grid" data-depth="-50">
+          <div class="info tilt"><span>Konum</span><strong>İzmir / Çiğli</strong></div>
+          <div class="info tilt"><span>Diller</span><strong>İngilizce (B2) · Almanca (A1)</strong></div>
+          <div class="info tilt"><span>Askerlik</span><strong>Yapıldı</strong></div>
+          <div class="info tilt"><span>Odak</span><strong>Bilgi İşlem · Web UI · Yapay Zeka</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 DENEYİM -->
+    <section class="panel" data-label="Deneyim">
+      <div class="art art-stack" aria-hidden="true">
+        <div class="gcard c1"><span class="ic">🍎</span><div><b>Apple Premium Partner</b><small>Technical Service Manager</small></div></div>
+        <div class="gcard c2"><span class="ic">🏛️</span><div><b>İzmir B. Belediyesi</b><small>IT Support Intern</small></div></div>
+        <div class="gcard c3"><span class="ic">⚖️</span><div><b>MGC Legal</b><small>IT Specialist</small></div></div>
+      </div>
+      <div class="stage scrollable">
+        <span class="section-index" data-depth="50">02</span>
+        <h2 class="section-title">Deneyimler</h2>
+        <div class="timeline" data-depth="-40">
+          <span class="tl-line"></span>
+          <div class="job">
+            <div class="job-date">Mayıs 2023 — Ekim 2026</div>
+            <div class="job-body">
+              <h3>Troy Apple Premium Partner · Artı Bilgisayar</h3>
+              <div class="job-roles"><span>Technical Service Manager</span><span>iOS Technician &amp; Customer Support Specialist</span><span>Technical Services Logistics Specialist</span></div>
+              <p>Teknolojiye duyduğum ilgi ve bilgimle, çalışmakta olduğum iş yerimde bilgi ve becerilerimin üstüne katarak kariyer yolculuğumda hızlı ve tecrübeli bir şekilde gelişmekteyim.</p>
+            </div>
+          </div>
+          <div class="job">
+            <div class="job-date">Haziran 2022 — Ağustos 2022</div>
+            <div class="job-body">
+              <h3>İzmir Büyükşehir Belediyesi</h3>
+              <div class="job-roles"><span>IT Support Intern</span></div>
+              <p>Üniversite son sınıfta dönem sonu staj eğitimi için 3 aylık staj deneyimimi tamamladım.</p>
+            </div>
+          </div>
+          <div class="job">
+            <div class="job-date">Temmuz2019 — Eylül 2022</div>
+            <div class="job-body">
+              <h3>MGC Legal</h3>
+              <div class="job-roles"><span>IT Specialist</span><span>IT Support Assistant</span></div>
+              <p>Bilgi işlem destek asistanı olarak göreve başladığım işimde kısa sürede tüm süreçleri öğrenip geliştirerek, bilgi işlem uzmanı olarak görevimi başarıyla sürdürdüm.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 EĞİTİM -->
+    <section class="panel" data-label="Eğitim">
+      <div class="art art-edu" aria-hidden="true">
+        <div class="edu-ring"></div>
+        <div class="edu-ring inner"></div>
+        <div class="edu-cap">🎓</div>
+        <div class="gcard e1"><span class="ic">📘</span><div><b>Lisans</b><small>Anadolu Üniv.</small></div></div>
+        <div class="gcard e2"><span class="ic">💻</span><div><b>Önlisans</b><small>Afyon Kocatepe</small></div></div>
+      </div>
+      <div class="stage scrollable two-col">
+        <div class="col">
+          <span class="section-index" data-depth="50">03</span>
+          <h2 class="section-title">Eğitim</h2>
+          <div class="edu-item"><h3>Yönetim Bilişim Sistemleri</h3><p>Anadolu Üniversitesi — Lisans Derecesi</p><span class="year">2023 — 2025</span></div>
+          <div class="edu-item"><h3>Bilgisayar Programcılığı</h3><p>Afyon Kocatepe Üniversitesi — Önlisans Derecesi</p><span class="year">2021 — 2023</span></div>
+        </div>
+        <div class="col" data-depth="-60">
+          <h2 class="section-title sub">Sertifikalar</h2>
+          <ul class="cert-list">
+            <li>İleri Seviye Python Programlama</li>
+            <li>Swift UI ile iOS Geliştirme</li>
+            <li>Siber Olay Tespit ve Müdahale</li>
+            <li>DoS / DDoS Saldırı ve Koruma</li>
+            <li>Windows İşletim Sistemleri Güvenliği</li>
+            <li>MS Office</li>
+            <li>Apple Certified Support Technician</li>
+            <li>Apple Certified Repair Technician</li>
+            <li>PeP</li>
+            <li>İHA-1 · Sportif / Amatör</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 YETENEKLER -->
+    <section class="panel" data-label="Yetenekler">
+      <div class="art art-skills" aria-hidden="true">
+        <div class="sk-core">⚛︎</div>
+        <div class="sk-orbit so1">
+          <span class="bub" style="--a:0deg"><span>React</span></span>
+          <span class="bub" style="--a:120deg"><span>Node</span></span>
+          <span class="bub" style="--a:240deg"><span>Swift</span></span>
+        </div>
+        <div class="sk-orbit so2">
+          <span class="bub" style="--a:40deg"><span>Python</span></span>
+          <span class="bub" style="--a:130deg"><span>MongoDB</span></span>
+          <span class="bub" style="--a:220deg"><span>Azure</span></span>
+          <span class="bub" style="--a:310deg"><span>AI</span></span>
+        </div>
+      </div>
+      <div class="stage scrollable">
+        <span class="section-index" data-depth="50">04</span>
+        <h2 class="section-title">Yetenekler</h2>
+        <div class="skills" data-depth="-40">
+          <span class="chip">React</span><span class="chip">Node.js</span><span class="chip">MongoDB</span>
+          <span class="chip">Swift UI</span><span class="chip">Python</span><span class="chip">Yapay Zeka Entegrasyonları</span>
+          <span class="chip">Sunucu Kurulumu &amp; Çözümleri</span><span class="chip">CRM Çözümleri</span><span class="chip">Azure Directory</span>
+          <span class="chip">Logo Tiger 3 ERP</span><span class="chip">Bulut Hizmetleri</span><span class="chip">MS Office</span>
+          <span class="chip">Stok Yönetimi</span><span class="chip">Veri Girişi</span><span class="chip">Siber Güvenlik</span>
+        </div>
+        <div class="stats" data-depth="-80">
+          <div class="stat"><strong data-count="4" data-suffix="+">0</strong><span>Yıl Deneyim</span></div>
+          <div class="stat"><strong data-count="3">0</strong><span>Kurum</span></div>
+          <div class="stat"><strong data-count="9">0</strong><span>Sertifika</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 İLETİŞİM -->
+    <section class="panel" data-label="İletişim">
+      <div class="art art-contact" aria-hidden="true">
+        <div class="ccard">
+          <div class="ccglow"></div>
+          <div class="cc-ava">MA</div>
+          <div class="cc-l"></div>
+          <div class="cc-l s"></div>
+          <div class="cc-l" style="width:80%"></div>
+          <div class="cc-btn">Mesaj Gönder ➤</div>
+        </div>
+      </div>
+      <div class="stage">
+        <span class="section-index" data-depth="50">05</span>
+        <h2 class="section-title big">Birlikte<br/>çalışalım.</h2>
+        <p class="about-text">Bir fikriniz ya da bir iş teklifiniz mi var? Bana ulaşabileceğiniz bağlantılar aşağıda ki gibidir.</p>
+        <div class="contact-links" data-depth="-50">
+          <a href="mailto:mthnay@outlook.com">E-Mail</a>
+          <a href="https://linkedin.com/in/metehanay" target="_blank" rel="noopener">linkedin Profilim</a>
+          <a href="https://github.com/mthnay" target="_blank" rel="noopener noreferrer">GitHub Profilim</a>
+        </div>
+        <p class="footer-note">© 2026 Metehan Ay · İzmir</p>
+      </div>
+    </section>
+
+  </main>
+
+<script>
+(function(){
+  const track=document.getElementById('track');
+  const panels=Array.from(document.querySelectorAll('.panel'));
+  const dotsWrap=document.getElementById('dots');
+  const progressBar=document.getElementById('progressBar');
+  const navIndicator=document.getElementById('navIndicator');
+  const niNum=navIndicator.querySelector('.ni-num');
+  const niLabel=navIndicator.querySelector('.ni-label');
+  let current=0;
+
+  panels.forEach((p,i)=>{
+    const b=document.createElement('button');
+    b.setAttribute('aria-label',p.dataset.label||('Bölüm '+(i+1)));
+    b.title=p.dataset.label||'';
+    b.addEventListener('click',()=>goTo(i));
+    dotsWrap.appendChild(b);
+  });
+  const dots=Array.from(dotsWrap.children);
+
+  function goTo(i){
+    i=Math.max(0,Math.min(panels.length-1,i));
+    track.scrollTo({left:i*window.innerWidth,behavior:'smooth'});
+  }
+
+  /* ===== Apple tarzı: kaydırmaya BAĞLI sinematik animasyon ===== */
+  const vw=()=>window.innerWidth;
+  function ease(t){return 1-Math.pow(1-Math.min(1,Math.abs(t)),2)} // yumuşatma
+
+  let ticking=false;
+  function render(){
+    ticking=false;
+    const w=vw();
+    let active=0,minDist=Infinity;
+    panels.forEach((p,i)=>{
+      const rect=p.getBoundingClientRect();
+      const rel=rect.left/w;              // +1 sağda, 0 ortada, -1 solda
+      const stage=p.querySelector('.stage');
+      const a=ease(rel);
+
+      // ana içerik: girerken küçükten büyür + kayar + solar, çıkarken büyüyüp uçar
+      if(stage){
+        let tx,scale;
+        if(rel>=0){ tx=rel*180; scale=1-a*0.18; }      // sağdan içeri
+        else      { tx=rel*120; scale=1+a*0.12; }      // sola doğru çıkış (zoom-through)
+        stage.style.opacity=Math.max(0,1-a*1.15);
+        stage.style.transform=`translateX(${tx}px) scale(${Math.max(.55,scale)})`;
+      }
+      // derinlik katmanları: birbirinin içine geçen parallax
+      p.querySelectorAll('[data-depth]').forEach(el=>{
+        const d=parseFloat(el.dataset.depth)||0;
+        el.style.transform=`translateX(${rel*d}px)`;
+      });
+
+      const dist=Math.abs(rel);
+      if(dist<minDist){minDist=dist;active=i;}
+    });
+
+    if(active!==current){
+      current=active;
+      panels.forEach((p,k)=>p.classList.toggle('active',k===active));
+      dots.forEach((d,k)=>d.classList.toggle('active',k===active));
+      niNum.textContent=String(active+1).padStart(2,'0');
+      niLabel.style.opacity='0';
+      setTimeout(()=>{niLabel.textContent=panels[active].dataset.label||'';niLabel.style.opacity='1';},160);
+      runCounters(panels[active]);
+    }
+    progressBar.style.width=((track.scrollLeft/(track.scrollWidth-w))*100||0)+'%';
+  }
+  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(render);}}
+
+  track.addEventListener('scroll',onScroll,{passive:true});
+
+  /* ===== Sayı sayacı ===== */
+  function runCounters(panel){
+    panel.querySelectorAll('[data-count]').forEach(el=>{
+      if(el.dataset.done)return; el.dataset.done='1';
+      const target=parseInt(el.dataset.count,10),suffix=el.dataset.suffix||'';
+      const dur=1100,t0=performance.now();
+      (function step(t){
+        const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);
+        el.textContent=Math.round(target*e)+suffix;
+        if(p<1)requestAnimationFrame(step);
+      })(t0);
+    });
+  }
+
+  /* ===== İmleç ışığı ===== */
+  const glow=document.getElementById('cursorGlow');
+  let gx=innerWidth/2,gy=innerHeight/2,tx2=gx,ty2=gy,glowOn=false;
+  window.addEventListener('mousemove',(e)=>{
+    tx2=e.clientX;ty2=e.clientY;
+    if(!glowOn){glowOn=true;glow.style.opacity='1';}
+  });
+  (function glowLoop(){
+    gx+=(tx2-gx)*0.12;gy+=(ty2-gy)*0.12;
+    glow.style.left=gx+'px';glow.style.top=gy+'px';
+    requestAnimationFrame(glowLoop);
+  })();
+
+  /* ===== 3D tilt ===== */
+  document.querySelectorAll('.tilt').forEach(el=>{
+    const max=10;
+    el.addEventListener('mousemove',(e)=>{
+      const r=el.getBoundingClientRect();
+      const px=(e.clientX-r.left)/r.width-0.5, py=(e.clientY-r.top)/r.height-0.5;
+      el.style.transform=`rotateY(${px*max}deg) rotateX(${-py*max}deg)`;
+    });
+    el.addEventListener('mouseleave',()=>{el.style.transform='';});
+  });
+
+  /* ===== Açılış animasyonu ===== */
+  const intro=document.getElementById('intro');
+  setTimeout(()=>{
+    intro.classList.add('done');
+    setTimeout(()=>intro.remove(),1000);
+  },2400);
+
+  /* fareyle/touchpad'le AŞAĞI-YUKARI kaydırınca sayfa SOLA-SAĞA gitsin */
+  let wheelLock=false;
+  window.addEventListener('wheel',(e)=>{
+    e.preventDefault();
+    if(wheelLock)return;
+    const d=Math.abs(e.deltaY)>=Math.abs(e.deltaX)?e.deltaY:e.deltaX;
+    if(Math.abs(d)<6)return;            // çok küçük titreşimleri yok say
+    wheelLock=true;
+    goTo(current+(d>0?1:-1));           // aşağı→sağa, yukarı→sola
+    setTimeout(()=>{wheelLock=false;},720);
+  },{passive:false});
+
+  window.addEventListener('keydown',(e)=>{
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();goTo(current+1);}
+    if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();goTo(current-1);}
+    if(e.key==='Home')goTo(0);
+    if(e.key==='End')goTo(panels.length-1);
+  });
+
+  document.querySelectorAll('[data-go]').forEach(el=>{
+    el.addEventListener('click',(e)=>{e.preventDefault();goTo(parseInt(el.dataset.go,10));});
+  });
+
+  let rz;
+  window.addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{track.scrollTo({left:current*window.innerWidth});render();},120);});
+
+  dots[0].classList.add('active');
+  panels[0].classList.add('active');
+  render();
+})();
+</script>
+</body>
+</html>
