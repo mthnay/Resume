@@ -467,6 +467,20 @@ button {
   will-change: transform, opacity;
 }
 
+/* Sol hizalı paneller (Profil, Deneyim, İletişim) - sadece masaüstü */
+@media (min-width: 769px) {
+  .panel--left {
+    justify-content: flex-start;
+  }
+}
+
+/* Giriş: stage tam genişliğe açılır, sol içerik sola, telefon sağa yaslanır */
+@media (min-width: 769px) {
+  .panel--wide .stage {
+    max-width: none;
+  }
+}
+
 .scrollable {
   overflow-y: auto;
   overflow-x: hidden;
@@ -1511,7 +1525,7 @@ button {
   <main class="track" id="track">
 
     <!-- 1. GİRİŞ -->
-    <section class="panel" data-label="Giriş">
+    <section class="panel panel--wide" data-label="Giriş">
       <div class="stage">
         <div class="hero">
           <div class="hero-content">
@@ -1560,7 +1574,7 @@ button {
     </section>
 
     <!-- 2. PROFİL -->
-    <section class="panel" data-label="Profil">
+    <section class="panel panel--left" data-label="Profil">
       <div class="art art-orbit" aria-hidden="true">
         <div class="orbit-core">MA</div>
         <div class="orbit-ring r1"><span class="ob"></span></div>
@@ -1581,7 +1595,7 @@ button {
     </section>
 
     <!-- 3. DENEYİM -->
-    <section class="panel" data-label="Deneyim">
+    <section class="panel panel--left" data-label="Deneyim">
       <div class="art art-stack" aria-hidden="true">
         <div class="gcard c1"><span class="ic">🍎</span><div><b>Apple Premium Partner</b><small>Technical Service Manager</small></div></div>
         <div class="gcard c2"><span class="ic">🏛️</span><div><b>İzmir B. Belediyesi</b><small>IT Support Intern</small></div></div>
@@ -1656,7 +1670,7 @@ button {
 
             <div class="cert-badges-grid">
               <div class="cert-pill apple">
-                <span class="cert-icon"></span>
+                <span class="cert-icon"></span>
                 <div class="cert-info">
                   <strong>Apple Certified Support Tech.</strong>
                   <small>ACST Destek Teknisyeni</small>
@@ -1664,7 +1678,7 @@ button {
               </div>
 
               <div class="cert-pill apple">
-                <span class="cert-icon"></span>
+                <span class="cert-icon"></span>
                 <div class="cert-info">
                   <strong>Apple Certified Repair Tech.</strong>
                   <small>ACRT Onarım Teknisyeni</small>
@@ -1818,7 +1832,7 @@ button {
     </section>
 
     <!-- 6. İLETİŞİM -->
-    <section class="panel" id="contact" data-label="İletişim">
+    <section class="panel panel--left" id="contact" data-label="İletişim">
       <div class="art art-contact" aria-hidden="true">
         <div class="ccard">
           <div class="ccglow"></div>
