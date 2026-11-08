@@ -43,7 +43,7 @@
     { repo: "Jarvis", name: "JARVIS", tag: "Yapay Zeka", c: "#ff4d6d",
       desc: "Kendi kişisel sesli asistanımı tarayıcıya taşıdığım proje. Mikrofonla konuşup sesli yanıt alabiliyorsunuz; zekâ kısmını Google Gemini sağlıyor. API anahtarını güvenlik için yalnızca sunucuda tutuyorum ve uygulamayı Render üzerinde yayına aldım.",
       stack: ["Python", "FastAPI", "Uvicorn", "Gemini", "LLM", "Web Speech"],
-      code: ['<span class="s">🎙  dinleniyor...</span>', '<span class="k">sen:</span> Jarvis, bugün hava nasıl?', '<span class="k">jarvis:</span> İzmir’de 24°C, güneşli.', '  Dışarı çıkmak için harika', '  bir gün efendim.', '<span class="o">● gemini · 412ms</span>'] },
+      code: ['<span class="s">🎙  dinleniyor...</span>', '<span class="k">sen:</span> Jarvis, bugün hava nasıl?', '<span class="k">jarvis:</span> İstanbul’da 21°C, güneşli.', '  Dışarı çıkmak için harika', '  bir gün efendim.', '<span class="o">● gemini · 412ms</span>'] },
     { repo: "OSS-Services-Helper", name: "OSS Helper", tag: "E-posta Otomasyonu", c: "#ffb02e",
       desc: "Servisteki en tekrarlı işlerden biri olan garanti dışı onarım teklifi e-postalarını hızlandırmak için yazdığım araç. Hasar türü, parça ve ücreti seçince müşteriye gidecek resmi bilgilendirme metni şablondan otomatik oluşuyor; ek dosyasıyla birlikte tek tıkla Brevo üzerinden gönderiliyor. Girişler JWT ile korunuyor ve masaüstünde Electron ile çalışıyor.",
       stack: ["React", "Vite", "Node.js", "Express", "Brevo", "JWT", "Electron"],
