@@ -202,8 +202,8 @@
         <span class="card__big">${pad(i + 1)}</span>
         <div class="win"><div class="win__bar"><i></i><i></i><i></i><span>~/${p.repo || "marthen-llm"}</span></div><pre>${p.code.join("\n")}</pre></div>
         ${shotOf(p) ? `<div class="shot"><div class="win__bar"><i></i><i></i><i></i><span>${t(p, "name")}</span></div>${p.video
-          ? `<video src="${shotOf(p)}.mp4" poster="${shotOf(p)}.jpg" muted loop playsinline autoplay preload="metadata"></video>`
-          : `<img src="${shotOf(p)}.jpg" alt="${t(p, "name")}">`}</div>` : ""}
+          ? `<video src="${shotOf(p)}.mp4" poster="${shotOf(p)}.jpg?v=2" muted loop playsinline autoplay preload="metadata"></video>`
+          : `<img src="${shotOf(p)}.jpg?v=2" alt="${t(p, "name")}">`}</div>` : ""}
       </div>
     </article>`).join("");
 
@@ -266,8 +266,8 @@
     pm.style.setProperty("--c", p.c);
     $("#pmMedia").innerHTML = src
       ? (p.video
-        ? `<video src="${src}.mp4" poster="${src}.jpg" muted loop playsinline autoplay controls></video>`
-        : `<img src="${src}.jpg" alt="${t(p, "name")}">`)
+        ? `<video src="${src}.mp4" poster="${src}.jpg?v=2" muted loop playsinline autoplay controls></video>`
+        : `<img src="${src}.jpg?v=2" alt="${t(p, "name")}">`)
       : `<pre>${p.code.join("\n")}</pre>`;
     $("#pmMedia").classList.toggle("is-code", !src);
     $("#pmMedia img")?.addEventListener("error", () => {
