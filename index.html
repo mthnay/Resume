@@ -3,12 +3,30 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Metehan Ay — IT & Sistem Uzmanı</title>
-  <meta name="description" content="Metehan Ay — IT & Sistem Uzmanı, yazılım geliştirici. İstanbul." />
+  <title>Metehan Ay — Portfolyo · Yazılım · Backend · AI</title>
+  <meta name="description" content="Metehan Ay — yazılım geliştirici. Backend, web ve yapay zeka projeleri." />
+  <meta name="theme-color" content="#08090a" />
+
+  <!-- Paylaşım önizlemesi (LinkedIn, WhatsApp, X, Slack...) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Metehan Ay" />
+  <meta property="og:title" content="Metehan Ay — Portfolyo · Yazılım · Backend · AI" />
+  <meta property="og:description" content="Gerçek dünyadaki sorunları koda dönüştüren yazılım geliştirici. Web uygulamaları, masaüstü araçlar ve yerel çalışan yapay zeka." />
+  <meta property="og:url" content="https://metehanaycv.onrender.com/" />
+  <meta property="og:image" content="https://metehanaycv.onrender.com/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://metehanaycv.onrender.com/og.jpg" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=8" />
 </head>
 <body class="loading">
   <!-- Preloader -->
@@ -24,9 +42,12 @@
   <header class="nav">
     <a href="#top" class="nav__logo">MA<i>.</i></a>
     <nav class="nav__links">
-      <a href="#about">Profil</a><a href="#experience">Deneyim</a><a href="#projects">Projeler</a><a href="#skills">Yetenekler</a>
+      <a href="#about" data-i18n="nav.about">Profil</a><a href="#experience" data-i18n="nav.exp">Deneyim</a><a href="#projects" data-i18n="nav.prj">Projeler</a><a href="#skills" data-i18n="nav.skills">Yetenekler</a>
     </nav>
-    <a href="#contact" class="nav__cta" data-magnetic>İletişim</a>
+    <div class="nav__right">
+      <button class="lang" id="langBtn" type="button" aria-label="Dil / Language"><span data-l="tr">TR</span><i>/</i><span data-l="en">EN</span></button>
+      <a href="#contact" class="nav__cta" data-magnetic data-i18n="nav.contact">İletişim</a>
+    </div>
   </header>
   <div class="progress"><i id="progress"></i></div>
 
@@ -35,18 +56,19 @@
     <section class="hero">
       <div class="hero__grid"></div>
       <div class="hero__glow"></div>
-      <p class="hero__kicker"><span class="dot"></span> IT & Sistem Uzmanı · Yazılım · İstanbul</p>
+      <div class="hero__bg" aria-hidden="true" lang="en"><span>PORTFOLIO</span></div>
+      <p class="hero__kicker"><span class="dot"></span> <span data-i18n="hero.kicker">Portfolyo · Yazılım · Backend · AI</span></p>
       <h1 class="hero__title">
         <span class="hero__line" data-split>METEHAN</span>
         <span class="hero__line outline" data-split>AY</span>
       </h1>
       <div class="hero__term"><span class="p">mthnay@root:~$</span> <span id="typed"></span><i class="caret"></i></div>
       <div class="hero__meta">
-        <div><b data-count="4" data-suffix="+">0</b><span>Yıl IT deneyimi</span></div>
-        <div><b data-count="10">0</b><span>Yayınlanan proje</span></div>
-        <div><b data-count="10" data-suffix="+">0</b><span>Sertifika & lisans</span></div>
+        <div><b data-count="4" data-suffix="+">0</b><span data-i18n="hero.s1">Yıl sektör deneyimi</span></div>
+        <div><b data-count="10">0</b><span data-i18n="hero.s2">Geliştirilen proje</span></div>
+        <div><b data-count="10" data-suffix="+">0</b><span data-i18n="hero.s3">Sertifika & lisans</span></div>
       </div>
-      <div class="hero__scroll">Kaydır <i></i></div>
+      <div class="hero__scroll"><span data-i18n="hero.scroll">Kaydır</span> <i></i></div>
     </section>
 
     <!-- MARQUEE -->
@@ -56,23 +78,17 @@
 
     <!-- ABOUT -->
     <section class="about" id="about">
-      <span class="label"><b>01</b> Profil</span>
-      <p class="about__text" data-reveal-words>
-        Apple yetkili servisinde teknik servis yöneticiliği yapmış bir IT uzmanıyım. Sahada edindiğim sistem yönetimi ve teknik destek tecrübesini <em>yazılımla birleştirip</em> tekrar eden işleri otomasyona, karmaşık süreçleri tek ekrana dönüştürüyorum.
+      <span class="label"><b>01</b> <span data-i18n="nav.about">Profil</span></span>
+      <p class="about__text" data-reveal-words data-i18n-html="about.text">
+        Gerçek dünyadaki sorunları koda dönüştüren bir yazılım geliştiriciyim. React ve Node.js ile uçtan uca web uygulamaları, Electron ile masaüstü araçlar ve <em>yerel çalışan yapay zeka</em> sistemleri geliştiriyorum; kendi dil modelimi sıfırdan eğitecek kadar işin derinine iniyorum.
       </p>
-      <div class="facts">
-        <div><small>Konum</small>İstanbul / Şişli</div>
-        <div><small>Eğitim</small>Yönetim Bilişim Sistemleri</div>
-        <div><small>Diller</small>İngilizce B2 · Almanca A1</div>
-        <div><small>Odak</small>Bilgi İşlem · Web · Yapay Zeka</div>
-      </div>
     </section>
 
     <!-- EXPERIENCE (pinned horizontal) -->
     <section class="exp" id="experience">
       <div class="exp__head">
-        <span class="label"><b>02</b> Deneyim</span>
-        <h2 class="big" data-split>KARİYER</h2>
+        <span class="label"><b>02</b> <span data-i18n="nav.exp">Deneyim</span></span>
+        <h2 class="big" data-split data-i18n="exp.title">KARİYER</h2>
       </div>
       <div class="exp__wrap">
         <div class="exp__track" id="expTrack"></div>
@@ -82,31 +98,31 @@
     <!-- PROJECTS (stacked cards) -->
     <section class="prj" id="projects">
       <div class="prj__head">
-        <span class="label"><b>03</b> Projeler</span>
-        <h2 class="big" data-split>PROJELER</h2>
-        <p class="prj__sub">Sahada karşılaştığım gerçek sorunlar için yazdığım yazılımlar.</p>
+        <span class="label"><b>03</b> <span data-i18n="nav.prj">Projeler</span></span>
+        <h2 class="big" data-split data-i18n="prj.title">PROJELER</h2>
+        <p class="prj__sub" data-i18n="prj.sub">Sahada karşılaştığım gerçek sorunlar için yazdığım yazılımlar. Ayrıntılar için bir projeye tıklayın.</p>
       </div>
       <div class="prj__stack" id="prjStack"></div>
-      <a class="btn" href="https://github.com/mthnay?tab=repositories" target="_blank" rel="noopener" data-magnetic>Tümü GitHub'da ↗</a>
+      <a class="btn" href="https://github.com/mthnay?tab=repositories" target="_blank" rel="noopener" data-magnetic data-i18n="prj.all">Tümü GitHub'da ↗</a>
     </section>
 
     <!-- SKILLS -->
     <section class="skills" id="skills">
-      <span class="label"><b>04</b> Yetenekler</span>
-      <h2 class="big" data-split>YETENEKLER</h2>
+      <span class="label"><b>04</b> <span data-i18n="nav.skills">Yetenekler</span></span>
+      <h2 class="big" data-split data-i18n="skills.title">YETENEKLER</h2>
       <div class="skills__grid" id="skillsGrid"></div>
       <div class="certs">
-        <h3>Sertifikalar & Lisanslar</h3>
+        <h3 data-i18n="skills.certs">Sertifikalar & Lisanslar</h3>
         <div class="certs__list" id="certs"></div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section class="contact" id="contact">
-      <p class="contact__kicker">Bir fikriniz ya da iş teklifiniz mi var?</p>
+      <p class="contact__kicker" data-i18n="contact.kicker">Bir fikriniz ya da iş teklifiniz mi var?</p>
       <h2 class="contact__title">
-        <span data-split>BİRLİKTE</span>
-        <span data-split class="outline">ÇALIŞALIM</span>
+        <span data-split data-i18n="contact.l1">BİRLİKTE</span>
+        <span data-split class="outline" data-i18n="contact.l2">ÇALIŞALIM</span>
       </h2>
       <div class="contact__links">
         <a href="mailto:mthnay@outlook.com" data-magnetic>mthnay@outlook.com</a>
@@ -114,15 +130,34 @@
         <a class="ghost" href="https://github.com/mthnay" target="_blank" rel="noopener" data-magnetic>GitHub ↗</a>
       </div>
       <footer class="foot">
-        <span>© 2026 Metehan Ay · İstanbul</span>
-        <a href="#top">Başa dön ↑</a>
+        <span>© 2026 Metehan Ay · <span data-i18n="foot.p">Portfolyo</span></span>
+        <a href="#top" data-i18n="foot.top">Başa dön ↑</a>
       </footer>
     </section>
   </main>
 
+  <!-- PROJECT DETAIL MODAL -->
+  <div class="pm" id="pm" aria-hidden="true">
+    <div class="pm__bg" data-close></div>
+    <article class="pm__box" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+      <button class="pm__close" type="button" data-close aria-label="Kapat">✕</button>
+      <div class="pm__media" id="pmMedia"></div>
+      <div class="pm__body">
+        <div class="pm__top" id="pmTop"></div>
+        <h3 id="pmTitle"></h3>
+        <p class="pm__desc" id="pmDesc"></p>
+        <h4 data-i18n="pm.learn">Bu projede ne öğrendim?</h4>
+        <ul class="pm__learn" id="pmLearn"></ul>
+        <h4 data-i18n="pm.stack">Kullanılan teknolojiler</h4>
+        <div class="card__stack" id="pmStack" lang="en"></div>
+        <div class="pm__actions" id="pmActions"></div>
+      </div>
+    </article>
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="main.js?v=3"></script>
+  <script src="main.js?v=8"></script>
 </body>
 </html>
