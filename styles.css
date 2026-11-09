@@ -209,6 +209,7 @@ em { font-style: normal; color: var(--acc); }
 .shot video { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
 
 /* Project modal */
+html.pm-open, html.pm-open body { overflow: hidden !important; }
 .pm { position: fixed; inset: 0; z-index: 500; display: none; --c: var(--acc); }
 .pm.is-open { display: block; }
 .pm__bg { position: absolute; inset: 0; background: #000c; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }

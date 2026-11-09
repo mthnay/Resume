@@ -245,7 +245,9 @@
   });
 
   /* ---------------- SMOOTH SCROLL ---------------- */
-  const lenis = new Lenis({ lerp: 0.09, smoothWheel: !reduce });
+  let modalOpen = false;
+  // Detay penceresi açıkken Lenis kaydırma olaylarına hiç dokunmaz; pencere tarayıcının kendi kaydırmasıyla kayar
+  const lenis = new Lenis({ lerp: 0.09, smoothWheel: !reduce, virtualScroll: () => !modalOpen });
   lenis.on("scroll", ScrollTrigger.update);
   gsap.ticker.add((x) => lenis.raf(x * 1000));
   gsap.ticker.lagSmoothing(0);
@@ -286,9 +288,10 @@
       ? `<a class="card__go" href="https://github.com/mthnay/${p.repo}" target="_blank" rel="noopener">${UI.github}</a>`
       : `<span class="card__go card__go--soon">${UI.soon}</span>`;
     lastFocus = document.activeElement;
+    modalOpen = true;
+    document.documentElement.classList.add("pm-open");
     pm.classList.add("is-open");
     pm.setAttribute("aria-hidden", "false");
-    lenis.stop();
     $(".pm__box").scrollTop = 0;
     gsap.fromTo(".pm__bg", { opacity: 0 }, { opacity: 1, duration: 0.35 });
     gsap.fromTo(".pm__box", { y: 60, scale: 0.94, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.6, ease: "expo.out" });
@@ -301,8 +304,9 @@
       pm.classList.remove("is-open");
       pm.setAttribute("aria-hidden", "true");
       $("#pmMedia").innerHTML = "";
-      lenis.start();
-      lastFocus?.focus?.();
+      modalOpen = false;
+      document.documentElement.classList.remove("pm-open");
+      lastFocus?.focus?.({ preventScroll: true });
     } });
   };
   document.addEventListener("click", (e) => {
