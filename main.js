@@ -260,6 +260,9 @@
   /* ---------------- PROJECT MODAL ---------------- */
   const pm = $("#pm");
   let lastFocus = null;
+  // Pencere içindeki kaydırma olayları sayfanın yumuşak kaydırmasına ulaşmasın
+  ["wheel", "touchstart", "touchmove"].forEach((ev) =>
+    pm.addEventListener(ev, (e) => e.stopPropagation(), { passive: true }));
   const openModal = (i) => {
     const p = P[i];
     const src = shotOf(p);
